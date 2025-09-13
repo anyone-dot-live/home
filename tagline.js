@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function terminalTypewriter(text) {
-	const speed = Math.random() * 50;
+	const speed = 50;
 
 	const terminal = document.getElementById("terminal");
 
