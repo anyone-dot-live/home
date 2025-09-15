@@ -1,0 +1,30 @@
+﻿@page "/"
+@using System.Reflection.Metadata
+
+<PageTitle>Home</PageTitle>
+
+@foreach (string line in terminalLines)
+{
+	<p>@line</p>
+}
+
+<div id="terminalInputContainer">
+	<span>></span>
+	<input id="terminalInput" type="text" autofocus @bind="CurrentInput" @bind:after="addText" />
+</div>
+
+@code {
+	List<string> terminalLines = new List<string>();
+
+	string CurrentInput { get; set; } = string.Empty;
+
+	void addText()
+	{
+		if (string.IsNullOrWhiteSpace(CurrentInput))
+			return;
+
+		terminalLines.Add(CurrentInput);
+
+		CurrentInput = string.Empty;
+	}
+}

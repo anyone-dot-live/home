@@ -1,39 +1,58 @@
 body {
-	font-family: monospace;
-	font-size: large;
 	background-color: #011;
 	color: #5A5;
-	padding: 1rem 1rem;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-hr {
-	border-color: #5A5;
-}
-
-header {
-	font-weight: bold;
-}
-
-main {
-	padding: 1rem;
-	flex-grow: 1;
+	font-family: monospace;
+	line-height: 1.25;
 }
 
 footer {
 	font-size: small;
 }
 
-main p:before {
-	content: ">";
-	position: fixed;
-	margin-left: -1rem;
+header {
+	font-weight: bold;
 }
 
-/* CRT screen effects */
+hr {
+	border-color: #5A5;
+	margin: 0.5rem 0;
+}
+
+main {
+	flex-grow: 1;
+}
+
+/*	TERMINAL  */
+
+#terminalWindow {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: space-between;
+	padding: 1rem;
+	width: 100%;
+}
+
+#terminalInputContainer {
+	display: flex;
+}
+
+#terminalInput {
+	margin-left: 0.5rem;
+	background: none;
+	color: #5A5;
+	font-family: monospace;
+	line-height: 0.1;
+	border: none;
+	flex-grow: 1;
+	padding: 0;
+}
+
+#terminalInput:focus {
+	outline: none;
+}
+
+/*	CRT SCREEN EFFECT  */
 
 body::before {
 	content: "";
@@ -65,6 +84,8 @@ body::after {
 	animation: scanline 8s linear infinite;
 }
 
+/*	ANIMATIONS  */
+
 @keyframes scanline {
 	0% {
 		background-position: 0 0;
@@ -72,35 +93,5 @@ body::after {
 
 	100% {
 		background-position: 0 100%;
-	}
-}
-
-/* Flicker effect for authenticity */
-#terminal:after {
-	content: "_";
-	animation: flicker 1s infinite;
-	opacity: 0.3;
-	font-weight: bolder;
-}
-
-@keyframes flicker {
-	0% {
-		opacity: 1;
-	}
-
-	60% {
-		opacity: 1;
-	}
-
-	70% {
-		opacity: 0;
-	}
-
-	90% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
 	}
 }
