@@ -1,39 +1,19 @@
+/*	PAGE  */
+
+html,
 body {
 	font-family: monospace;
 	font-size: large;
 	background-color: #011;
 	color: #5A5;
-	padding: 1rem 1rem;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
 
-hr {
-	border-color: #5A5;
-}
-
-header {
+#loading {
 	font-weight: bold;
-}
-
-main {
 	padding: 1rem;
-	flex-grow: 1;
 }
 
-footer {
-	font-size: small;
-}
-
-main p:before {
-	content: ">";
-	position: fixed;
-	margin-left: -1rem;
-}
-
-/* CRT screen effects */
+/*	CRT effect  */
 
 body::before {
 	content: "";
@@ -72,35 +52,5 @@ body::after {
 
 	100% {
 		background-position: 0 100%;
-	}
-}
-
-/* Flicker effect for authenticity */
-#terminal:after {
-	content: "_";
-	animation: flicker 1s infinite;
-	opacity: 0.3;
-	font-weight: bolder;
-}
-
-@keyframes flicker {
-	0% {
-		opacity: 1;
-	}
-
-	60% {
-		opacity: 1;
-	}
-
-	70% {
-		opacity: 0;
-	}
-
-	90% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
 	}
 }

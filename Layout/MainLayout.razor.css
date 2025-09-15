@@ -1,0 +1,25 @@
+/*	Terminal Container  */
+
+#terminalContainer {
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+#terminalContainer>footer {
+	font-size: small;
+}
+
+#terminalContainer>header {
+	font-weight: bold;
+}
+
+#terminalContainer>hr {
+	margin: 0.5rem 0;
+	border-color: #5A5;
+}
+
+#terminalContainer>main {
+	flex-grow: 1;
+}

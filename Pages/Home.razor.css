@@ -1,0 +1,23 @@
+/*	Terminal Input  */
+
+#terminalInput {
+	background: none;
+	display: inline;
+	flex-grow: 1;
+	font-family: monospace;
+	color: #5A5;
+	border: none;
+	padding: 0;
+}
+
+#terminalInput:focus {
+	outline: none;
+}
+
+#terminalInputContainer {
+	display: flex;
+}
+
+#terminalInputContainer>span {
+	margin-right: 0.5rem;
+}

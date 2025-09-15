@@ -1,0 +1,37 @@
+﻿@page "/"
+@using System.Threading.Tasks
+
+<PageTitle>The Open World Experiment</PageTitle>
+
+@foreach (string line in Content)
+{
+	<p>@line</p>
+}
+
+<div id="terminalInputContainer">
+	<span>></span>
+	<input id="terminalInput" type="text" autofocus @bind="CurrentInput" @bind:after="AddInput" />
+</div>
+
+@code {
+	string CurrentInput { get; set; } = string.Empty;
+
+	List<string> Content { get; set; } = new List<string>() {
+"/home"
+};
+
+	void AddInput()
+	{
+		Content.Add(CurrentInput);
+
+		if (CurrentInput == "clear")
+			Content.RemoveAll(EveryString);
+
+		CurrentInput = string.Empty;
+	}
+
+	static bool EveryString(string s)
+	{
+		return true;
+	}
+}
