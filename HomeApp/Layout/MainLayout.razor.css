@@ -1,0 +1,26 @@
+/* Theme */
+
+header {
+	font-weight: bold;
+}
+
+hr {
+	border-color: #5A5;
+	margin: 0.5rem 0;
+}
+
+footer {
+	font-size: small;
+}
+
+/* Terminal */
+
+#terminal-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#terminal-container>main {
+	flex-grow: 1;
+}

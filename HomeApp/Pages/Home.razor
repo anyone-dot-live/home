@@ -1,0 +1,52 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>Anyone Live: Terminal</PageTitle>
+
+@foreach (string line in terminalLines)
+{
+	<p class="terminal-line">@line</p>
+}
+
+<div id="terminal-input">
+	<span>></span>
+	<input type="text" autofocus @bind-value="currentInput" @onkeydown="submitInput" />
+</div>
+
+@code {
+	List<string> terminalLines = new List<string>();
+	string currentInput = string.Empty;
+	Random random = new Random();
+
+	async Task submitInput(KeyboardEventArgs e)
+	{
+		if (e.Key is not "Enter") return;
+
+		await Task.Delay(millisecondsDelay: 50);
+
+		// TODO INTERACT WITH INPUT
+
+		terminalLines.Add(currentInput);
+		currentInput = string.Empty;
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		await AddRandomTaglineAsync();
+	}
+
+	async Task AddRandomTaglineAsync()
+	{
+		string randomTagline = await GetRandomTaglineAsync();
+
+		terminalLines.Add(randomTagline);
+	}
+
+	async Task<string> GetRandomTaglineAsync()
+	{
+		string[]? taglines = await Http.GetFromJsonAsync<string[]>(requestUri: "taglines.json") ?? throw new
+		NullReferenceException();
+
+		return taglines[random.Next(minValue: 0, taglines.Length)];
+	}
+}

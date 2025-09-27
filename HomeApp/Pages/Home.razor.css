@@ -1,0 +1,38 @@
+/* Terminal Lines */
+
+.terminal-line {
+	animation: typing 1s steps(40, end) forwards;
+	clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+/* Terminal Input */
+
+#terminal-input {
+	display: flex;
+	align-items: flex-end;
+}
+
+#terminal-input>input {
+	margin-left: 1rem;
+	background: none;
+	border: none;
+	padding: 0;
+	flex-grow: 1;
+	color: #5A5;
+}
+
+#terminal-input>input:focus {
+	outline: none;
+}
+
+#terminal-input>span {
+	font-weight: bold;
+}
+
+/* Animations */
+
+@keyframes typing {
+	to {
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}
+}
